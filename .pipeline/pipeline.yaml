@@ -56,6 +56,8 @@ spec:
           value: "secure-properties"
         - name: cloud-foundry-apikey-secret-key
           value: "apikey"
+        - name: BIG_SECRET
+          value: "big-secret"
         - name: region
           value: $(params.region)
         - name: cf-org
@@ -66,6 +68,7 @@ spec:
           value: $(params.cf-app)
         - name: cf-commands
           value: |
+            echo $BIG_SECRET
             # Push app
             if ! cf app "$CF_APP"; then
               cf push "$CF_APP"
