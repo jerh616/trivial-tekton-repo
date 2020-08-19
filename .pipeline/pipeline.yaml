@@ -72,7 +72,9 @@ spec:
           value: $(params.cf-app)
         - name: cf-commands
           value: |
+            echo "==========="
             echo $BIG_SECRET
+            echo "==========="
             # Push app
             if ! cf app "$CF_APP"; then
               cf push "$CF_APP"
