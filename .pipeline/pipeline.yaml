@@ -57,7 +57,11 @@ spec:
         - name: cloud-foundry-apikey-secret-key
           value: "apikey"
         - name: BIG_SECRET
-          value: "big-secret"
+          #value: "big-secret"
+          valueFrom:
+            secretKeyRef:
+              name: secure-properties
+              key: big-secret
         - name: region
           value: $(params.region)
         - name: cf-org
