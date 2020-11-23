@@ -5,6 +5,8 @@ metadata:
   name: simple-hosted-pipeline
 spec:
   params:
+    - name: target-environment
+      description: the environment we're deploying to
     - name: repository
       description: the git repo containing source code. If empty, the repository url will be found from toolchain
       default: ""
@@ -68,6 +70,8 @@ spec:
       taskRef:
         name: cf-deploy-app
       params:
+        - name: target-environment
+          value: $(params.target-environment)
         - name: continuous-delivery-context-secret
           value: "secure-properties"
         - name: cloud-foundry-apikey-secret-key
@@ -84,6 +88,7 @@ spec:
           value: |
             # Random testing...
             echo "McQ says, hello, world!"
+            echo $target-environment
             # Push app
             if ! cf app "$CF_APP"; then
               cf push "$CF_APP"
