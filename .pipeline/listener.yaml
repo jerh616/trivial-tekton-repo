@@ -5,6 +5,7 @@ metadata:
   name: simple-hosted-pipeline
 spec:
   params:
+    - name: target-environment
     - name: repository
       description: The git repo
     - name: branch
@@ -42,6 +43,8 @@ spec:
         pipelineRef:
           name: simple-hosted-pipeline
         params:
+          - name: target-environment
+            value: $(params.target-environment)
           - name: repository
             value: $(params.repository)
           - name: branch
