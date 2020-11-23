@@ -6,7 +6,7 @@ metadata:
 spec:
   params:
     - name: target-environment
-      description: the environment we're deploying to
+      description: the environment to deploy to
     - name: repository
       description: the git repo containing source code. If empty, the repository url will be found from toolchain
       default: ""
