@@ -9,7 +9,7 @@ spec:
       description: the target environment
       default: "I did not get one"
   results:
-    - name: extracted-value
+    - name: extracted-environment-value
       description: The extracted value
   stepTemplate:
     env:
