@@ -32,6 +32,12 @@ spec:
   workspaces:
     - name: pipeline-ws
   tasks:
+    - name: environment-test
+      taskRef:
+        name: fetch-environment
+      params:
+        - name: target-environment
+          value: $(params.target-environment)
     - name: extract-repository-url
       taskRef:
         name: toolchain-extract-value
