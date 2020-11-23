@@ -8,6 +8,9 @@ spec:
     - name: target-environment
       description: the target environment
       default: "I did not get one"
+    - name: pipeline-debug
+      description: Pipeline debug mode
+      default: "0"
   results:
     - name: extracted-environment-value
       description: The extracted value
