@@ -8,6 +8,9 @@ spec:
     - name: target-environment
       description: the target environment
       default: "I did not get one"
+    - name: config-map-name
+      description: name of the config map
+      default: toolchain
     - name: pipeline-debug
       description: Pipeline debug mode
       default: "0"
