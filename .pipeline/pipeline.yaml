@@ -82,6 +82,8 @@ spec:
           value: $(params.cf-app)
         - name: cf-commands
           value: |
+            # Random testing...
+            echo "McQ says, hello, world!"
             # Push app
             if ! cf app "$CF_APP"; then
               cf push "$CF_APP"
