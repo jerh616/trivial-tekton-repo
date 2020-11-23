@@ -76,8 +76,6 @@ spec:
       taskRef:
         name: cf-deploy-app
       params:
-        - name: target-environment
-          value: $(params.target-environment)
         - name: continuous-delivery-context-secret
           value: "secure-properties"
         - name: cloud-foundry-apikey-secret-key
