@@ -7,28 +7,28 @@ spec:
   params:
     - name: target-environment
       description: the environment to deploy to
-    - name: repository
-      description: the git repo containing source code. If empty, the repository url will be found from toolchain
-      default: ""
-    - name: branch
-      description: the branch for the git repo
-      default: "master"
-    - name: revision
-      description: the git revision/commit for the git repo
-    - name: region
-      description: Name of the region to deploy the CF app to. Default to the toolchain region
-      default: ""
-    - name: cf-org
-      description: Name of organization to deploy the CF app to
-    - name: cf-space
-      description: Name of space to deploy the CF app to
-    - name: cf-app
-      description: Name of the CF application to be deployed
-    - name: pipeline-debug
-      default: "0"
-    - name: ibmcloud-api
-      description: IBM Cloud instance to target
-      default: "https://cloud.ibm.com"
+#    - name: repository
+#      description: the git repo containing source code. If empty, the repository url will be found from toolchain
+#      default: ""
+#    - name: branch
+#      description: the branch for the git repo
+#      default: "master"
+#    - name: revision
+#      description: the git revision/commit for the git repo
+#    - name: region
+#      description: Name of the region to deploy the CF app to. Default to the toolchain region
+#      default: ""
+#    - name: cf-org
+#      description: Name of organization to deploy the CF app to
+#    - name: cf-space
+#      description: Name of space to deploy the CF app to
+#    - name: cf-app
+#      description: Name of the CF application to be deployed
+#    - name: pipeline-debug
+#      default: "0"
+#    - name: ibmcloud-api
+#      description: IBM Cloud instance to target
+#      default: "https://cloud.ibm.com"
   workspaces:
     - name: pipeline-ws
   tasks:
