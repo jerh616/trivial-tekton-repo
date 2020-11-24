@@ -6,23 +6,23 @@ metadata:
 spec:
   params:
     - name: target-environment
-    - name: repository
-      description: The git repo
-    - name: branch
-      description: the branch for the git repo
-      default: "master"
-    - name: revision
-      description: the git revision/commit for the git repo (default to '' means branch)
-      default: ""
-    - name: region
-      default: ""
-    - name: cf-org
-    - name: cf-space
-    - name: cf-app
-    - name: pipeline-debug
-      default: "0"
-    - name: ibmcloud-api
-      default: "https://cloud.ibm.com"
+#    - name: repository
+#      description: The git repo
+#    - name: branch
+#      description: the branch for the git repo
+#      default: "master"
+#    - name: revision
+#      description: the git revision/commit for the git repo (default to '' means branch)
+#      default: ""
+#    - name: region
+#      default: ""
+#    - name: cf-org
+#    - name: cf-space
+#    - name: cf-app
+#    - name: pipeline-debug
+#      default: "0"
+#    - name: ibmcloud-api
+#      default: "https://cloud.ibm.com"
   resourcetemplates:
     - apiVersion: v1
       kind: PersistentVolumeClaim
