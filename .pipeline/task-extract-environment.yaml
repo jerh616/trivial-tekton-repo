@@ -20,4 +20,5 @@ spec:
           #!/bin/bash
           echo "******"
           echo $ENVIRONMENT
+          echo `jq .parameters <~/Desktop/json.json | jq '."additional-properties"' `
           echo "******"
