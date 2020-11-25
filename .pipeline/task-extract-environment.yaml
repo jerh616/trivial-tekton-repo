@@ -7,23 +7,10 @@ spec:
   params:
     - name: target-environment
       description: the target environment
-      default: "I did not get one"
-    - name: config-map-name
-      description: name of the config map
-      default: toolchain
-    - name: pipeline-debug
-      description: Pipeline debug mode
-      default: "0"
-  results:
-    - name: extracted-environment-value
-      description: The extracted value
-  stepTemplate:
-    env:
-      - name: PIPELINE_DEBUG
-        value: $(params.pipeline-debug)
+      default: nothing
   steps:
     - name: echo-some-stuff
-      image: ibmcom/pipeline-base-image:2.6
+      image: ibmcom/pipeline-base-image:latest
       env:
         - name: ENVIRONMENT
           value: $(params.target-environment)
@@ -34,10 +21,3 @@ spec:
           echo "******"
           echo $ENVIRONMENT
           echo "******"
-      volumeMounts:
-        - mountPath: /cd-config
-          name: cd-config-volume
-  volumes:
-    - name: cd-config-volume
-      configMap:
-        name: $(params.config-map-name)
