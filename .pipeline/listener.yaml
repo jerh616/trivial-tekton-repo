@@ -23,7 +23,7 @@ kind: TriggerBinding
 metadata:
   name: manual-run
 spec:
-  params:
+  params: []
 ---
 apiVersion: tekton.dev/v1beta1
 kind: EventListener
