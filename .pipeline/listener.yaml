@@ -7,17 +7,6 @@ spec:
   params:
     - name: target-environment
   resourcetemplates:
-    - apiVersion: v1
-      kind: PersistentVolumeClaim
-      metadata:
-        name: simple-hosted-pipeline-$(uid)-pvc
-      spec:
-        resources:
-          requests:
-            storage: 5Gi
-        volumeMode: Filesystem
-        accessModes:
-          - ReadWriteOnce
     - apiVersion: tekton.dev/v1beta1
       kind: PipelineRun
       metadata:
@@ -28,10 +17,6 @@ spec:
         params:
           - name: target-environment
             value: $(params.target-environment)
-        workspaces:
-          - name: pipeline-ws
-            persistentVolumeClaim:
-              claimName: simple-hosted-pipeline-$(uid)-pvc
 ---
 apiVersion: tekton.dev/v1beta1
 kind: TriggerBinding
