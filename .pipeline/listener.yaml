@@ -6,23 +6,6 @@ metadata:
 spec:
   params:
     - name: target-environment
-#    - name: repository
-#      description: The git repo
-#    - name: branch
-#      description: the branch for the git repo
-#      default: "master"
-#    - name: revision
-#      description: the git revision/commit for the git repo (default to '' means branch)
-#      default: ""
-#    - name: region
-#      default: ""
-#    - name: cf-org
-#    - name: cf-space
-#    - name: cf-app
-#    - name: pipeline-debug
-#      default: "0"
-#    - name: ibmcloud-api
-#      default: "https://cloud.ibm.com"
   resourcetemplates:
     - apiVersion: v1
       kind: PersistentVolumeClaim
@@ -45,24 +28,6 @@ spec:
         params:
           - name: target-environment
             value: $(params.target-environment)
-#          - name: repository
-#            value: $(params.repository)
-#          - name: branch
-#            value: $(params.branch)
-#          - name: revision
-#            value: $(params.revision)
-#          - name: region
-#            value: $(params.region)
-#          - name: cf-org
-#            value: $(params.cf-org)
-#          - name: cf-space
-#            value: $(params.cf-space)
-#          - name: cf-app
-#            value: $(params.cf-app)
-#          - name: pipeline-debug
-#            value: $(params.pipeline-debug)
-#          - name: ibmcloud-api
-#            value: $(params.ibmcloud-api)
         workspaces:
           - name: pipeline-ws
             persistentVolumeClaim:
@@ -83,77 +48,5 @@ spec:
   triggers:
     - binding:
         name: manual-run
-      template:
-        name: simple-hosted-pipeline
----
-apiVersion: tekton.dev/v1beta1
-kind: TriggerBinding
-metadata:
-  name: github-commit
-spec:
-  params:
-    - name: repository
-      value: "$(event.repository.url)"
-    - name: branch
-      value: "$(event.ref)"
-    - name: revision
-      value: "$(event.head_commit.id)"
----
-apiVersion: tekton.dev/v1beta1
-kind: EventListener
-metadata:
-  name: github-commit
-spec:
-  triggers:
-    - binding:
-        name: github-commit
-      template:
-        name: simple-hosted-pipeline
----
-apiVersion: tekton.dev/v1beta1
-kind: TriggerBinding
-metadata:
-  name: grit-or-gitlab-commit
-spec:
-  params:
-    - name: repository
-      value: "$(event.repository.git_http_url)"
-    - name: branch
-      value: "$(event.ref)"
-    - name: revision
-      value: "$(event.checkout_sha)"
----
-apiVersion: tekton.dev/v1beta1
-kind: EventListener
-metadata:
-  name: grit-or-gitlab-commit
-spec:
-  triggers:
-    - binding:
-        name: grit-or-gitlab-commit
-      template:
-        name: simple-hosted-pipeline
----
-apiVersion: tekton.dev/v1beta1
-kind: TriggerBinding
-metadata:
-  name: bitbucket-commit
-spec:
-  params:
-    - name: repository
-      value: "$(event.repository.links.html.href)"
-    - name: revision
-      value: "$(event.push.changes[0].new.target.hash)"
-    - name: branch
-      value: "$(event.push.changes[0].new.name)"
----
-apiVersion: tekton.dev/v1beta1
-kind: EventListener
-metadata:
-  name: bitbucket-commit
-spec:
-  triggers:
-    - binding:
-        name: bitbucket-commit
       template:
         name: simple-hosted-pipeline
