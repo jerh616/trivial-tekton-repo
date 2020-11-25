@@ -4,8 +4,6 @@ kind: TriggerTemplate
 metadata:
   name: simple-hosted-pipeline
 spec:
-  params:
-    - name: target-environment
   resourcetemplates:
     - apiVersion: tekton.dev/v1beta1
       kind: PipelineRun
