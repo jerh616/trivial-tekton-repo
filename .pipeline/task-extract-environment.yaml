@@ -20,6 +20,6 @@ spec:
           #!/bin/bash
           echo "******"
           echo $ENVIRONMENT
-          AP=`echo $ENVIRONMENT | jq .parameters | jq '."additional-properties"'`
+          AP=`echo $ENVIRONMENT | jq .parameters | jq -r '."additional-properties"'`
           echo $AP
           echo "******"
