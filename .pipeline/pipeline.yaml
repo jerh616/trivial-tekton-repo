@@ -5,12 +5,12 @@ metadata:
   name: simple-hosted-pipeline
 spec:
   params:
-    - name: target-environment
+    - name: dev
       description: the environment to deploy to
   tasks:
     - name: environment-test
       taskRef:
         name: fetch-environment
       params:
-        - name: target-environment
-          value: $(params.target-environment)
+        - name: dev
+          value: $(params.dev)
