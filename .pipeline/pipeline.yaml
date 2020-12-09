@@ -12,5 +12,5 @@ spec:
       taskRef:
         name: fetch-environment
       params:
-        - name: dev
+        - name: target-environment
           value: $(params.dev)
