@@ -15,8 +15,8 @@ spec:
         pipelineRef:
           name: simple-hosted-pipeline
         params:
-          - name: target-environment
-            value: $(params.target-environment)
+          - name: dev
+            value: $(params.dev)
 ---
 apiVersion: tekton.dev/v1beta1
 kind: TriggerBinding
